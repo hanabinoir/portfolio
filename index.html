@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html ng-app="portfolio" ng-controller="weather-ctrl">
+    <head>
+        <meta charset="utf-8">
+        <title>My FreeCodeCamp Portfolio</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/master.css">
+        <link rel="stylesheet" href="./css/weather-icons.css">
+        <link rel="stylesheet" href="./css/weather-icons-wind.css">
+        <link rel="application/octet-stream" href="./font/weathericons-regular-webfont.eot">
+        <link rel="image/svg+xml" href="./font/weathericons-regular-webfont.svg">
+        <link rel="application/octet-stream" href="./font/weathericons-regular-webfont.ttf">
+        <link rel="application/font-woff" href="./font/weathericons-regular-webfont.woff">
+        <link rel="application/octet-stream" href="./font/weathericons-regular-webfont.woff2">
+
+        <div class="container" name="top">
+            <div class="row text-center">
+                <div class="col-md-6 weather-details">
+                    <p>
+                        <span ng-if="dayTime">
+                            <span ng-switch="weather.icon">
+                                <span ng-switch-when="clear-day">
+                                    <i id="weather-icon" class="wi wi-day-sunny"></i>
+                                </span>
+                                <span ng-switch-when="cloudy">
+                                    <i id="weather-icon" class="wi wi-day-cloudy"></i>
+                                </span>
+                                <span ng-switch-when="rain">
+                                    <i id="weather-icon" class="wi wi-day-rain"></i>
+                                </span>
+                                <span ng-switch-when="sleet">
+                                    <i id="weather-icon" class="wi wi-day-sleet"></i>
+                                </span>
+                                <span ng-switch-when="windy">
+                                    <i id="weather-icon" class="wi wi-day-windy"></i>
+                                </span>
+                                <span ng-switch-when="fog">
+                                    <i id="weather-icon" class="wi wi-day-fog"></i>
+                                </span>
+                                <span ng-switch-default>
+                                    <i id="weather-icon" class="wi wi-day-hail"></i>
+                                </span>
+                            </span>
+                        </span>
+                        <span ng-else>
+                            <span ng-switch="weather.icon">
+                                <span ng-switch-when="clear-night">
+                                    <i id="weather-icon" class="wi wi-night-clear"></i>
+                                </span>
+                                <span ng-switch-when="cloudy">
+                                    <i id="weather-icon" class="wi wi-night-cloudy"></i>
+                                </span>
+                                <span ng-switch-when="rain">
+                                    <i id="weather-icon" class="wi wi-night-rain"></i>
+                                </span>
+                                <span ng-switch-when="partly-cloudy-night">
+                                    <i id="weather-icon" class="wi wi-night-partly-cloudy"></i>
+                                </span>
+                                <span ng-switch-when="windy">
+                                    <i id="weather-icon" class="wi wi-night-windy"></i>
+                                </span>
+                                <span ng-switch-when="fog">
+                                    <i id="weather-icon" class="wi wi-night-fog"></i>
+                                </span>
+                                <span ng-switch-default>
+                                    <i id="weather-icon" class="wi wi-night-hail"></i>
+                                </span>
+                            </span>
+                        </span>
+
+                        <span id="weather-summary">
+                            {{weather.summary}}
+                        </span>
+                        <span id="weather-temporature">
+                            {{weather.celsius.toFixed(2)}}
+                        </span>
+                        <i id="weather-unit-celsius"
+                        class="wi wi-celsius"></i>
+                    </p>
+                </div>
+                <div class="col-md-6 location-details">
+                    <p>
+                        <span id="location-city">
+                            {{location.city}}
+                        </span>,
+                        <span id="location-region">
+                            {{location.region}}
+                        </span>,
+                        <span id="location-country">
+                            {{location.country}}
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </head>
+    <header class="page-header">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-xs-2 app-name">
+                    <a href="#top">
+                        <h3>Portfolio</h3>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="row nav-bar">
+                        <div class="col-xs-3">
+                            <a href="#portfolio-profile">
+                                <h4>Profile</h4>
+                            </a>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="#portfolio-projects">
+                                <h4>Projects</h4>
+                            </a>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="#portfolio-games">
+                                <h4>Games</h4>
+                            </a>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="#portfolio-contact">
+                                <h4>Contact</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <body>
+        <div class="container" id="portfolio-profile">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="#" alt="Profile">
+                        </div>
+                        <div class="col-xs-6">
+                            <ul>
+                                <li><i>GitHub</i></li>
+                                <li><i>LinkedIn</i></li>
+                                <li><i>freeCodeCamp</i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <strong>Summary</strong>
+                        </div>
+                        <div class="col-sm-8" ng-controller="profile-ctrl">
+                            <p>
+                                {{content}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container text-center" id="portfolio-projects">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Random Quotes</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Local Weather</h3>
+                            <h4>
+                                <span ng-if="dayTime">
+                                    <span ng-switch="weather.icon">
+                                        <span ng-switch-when="clear-day">
+                                            <i id="weather-icon" class="wi wi-day-sunny"></i>
+                                        </span>
+                                        <span ng-switch-when="cloudy">
+                                            <i id="weather-icon" class="wi wi-day-cloudy"></i>
+                                        </span>
+                                        <span ng-switch-when="rain">
+                                            <i id="weather-icon" class="wi wi-day-rain"></i>
+                                        </span>
+                                        <span ng-switch-when="sleet">
+                                            <i id="weather-icon" class="wi wi-day-sleet"></i>
+                                        </span>
+                                        <span ng-switch-when="windy">
+                                            <i id="weather-icon" class="wi wi-day-windy"></i>
+                                        </span>
+                                        <span ng-switch-when="fog">
+                                            <i id="weather-icon" class="wi wi-day-fog"></i>
+                                        </span>
+                                        <span ng-switch-default>
+                                            <i id="weather-icon" class="wi wi-day-hail"></i>
+                                        </span>
+                                    </span>
+                                </span>
+                                <span ng-else>
+                                    <span ng-switch="weather.icon">
+                                        <span ng-switch-when="clear-night">
+                                            <i id="weather-icon" class="wi wi-night-clear"></i>
+                                        </span>
+                                        <span ng-switch-when="cloudy">
+                                            <i id="weather-icon" class="wi wi-night-cloudy"></i>
+                                        </span>
+                                        <span ng-switch-when="rain">
+                                            <i id="weather-icon" class="wi wi-night-rain"></i>
+                                        </span>
+                                        <span ng-switch-when="partly-cloudy-night">
+                                            <i id="weather-icon" class="wi wi-night-partly-cloudy"></i>
+                                        </span>
+                                        <span ng-switch-when="windy">
+                                            <i id="weather-icon" class="wi wi-night-windy"></i>
+                                        </span>
+                                        <span ng-switch-when="fog">
+                                            <i id="weather-icon" class="wi wi-night-fog"></i>
+                                        </span>
+                                        <span ng-switch-default>
+                                            <i id="weather-icon" class="wi wi-night-hail"></i>
+                                        </span>
+                                    </span>
+                                </span>
+                                <span id="weather-summary">
+                                    {{weather.summary}}
+                                </span>
+                                <span id="weather-temporature">
+                                    {{
+                                        (weather.unit == "celsius") ?
+                                        weather.celsius.toFixed(2) :
+                                        weather.fahrenheit.toFixed(2)
+                                    }}
+                                </span>
+                                <i
+                                id="weather-unit-celsius"
+                                class="wi wi-celsius btn unit unit-selected" ng-click="weather.unit = 'celsius'"></i>/
+                                <i
+                                id="weather-unit-fahrenheit"
+                                class="wi wi-fahrenheit btn unit" ng-click="weather.unit = 'fahrenheit'"></i>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Wiki Generator</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Twitch Bridge</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="portfolio-games">
+            <h3>Games</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+
+        <div class="container" id="portfolio-contact">
+            <h3>Contact</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+    </body>
+    <footer class="text-center">
+        <a href="https://darksky.net/poweredby/" target="_blank">
+            <img
+            class="powered-by-darksky"
+            src="https://darksky.net/dev/img/attribution/poweredby-oneline.png"
+            alt="Powered by Dark Sky">
+        </a>
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.js"
+          integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+          crossorigin="anonymous"></script>
+        <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script type="text/javascript" src="./js/weather.js"></script>
+        <script type="text/javascript" src="./js/main.js"></script>
+    </footer>
+</html>
