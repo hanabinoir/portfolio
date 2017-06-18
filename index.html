@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="portfolio" ng-controller="weather-ctrl">
+<html ng-app="portfolio">
     <head>
         <meta charset="utf-8">
         <title>My FreeCodeCamp Portfolio</title>
@@ -15,7 +15,8 @@
 
         <div class="container" name="top">
             <div class="row text-center">
-                <div class="col-md-6 weather-details">
+                <div
+                class="col-md-6 weather-details" ng-controller="weather-ctrl">
                     <p>
                         <span ng-if="dayTime">
                             <span ng-switch="weather.icon">
@@ -78,7 +79,8 @@
                         class="wi wi-celsius"></i>
                     </p>
                 </div>
-                <div class="col-md-6 location-details">
+                <div
+                class="col-md-6 location-details"  ng-controller="region-ctrl">
                     <p>
                         <span id="location-city">
                             {{location.city}}
@@ -153,7 +155,8 @@
                         </div>
                         <div class="col-sm-8" ng-controller="profile-ctrl">
                             <p>
-                                {{content}}
+                                lat: {{latlng.lat}} <br>
+                                lng: {{latlng.lng}}
                             </p>
                         </div>
                     </div>
@@ -176,7 +179,7 @@
                     <div class="thumbnail">
                         <div class="caption">
                             <h3>Local Weather</h3>
-                            <h4>
+                            <h4 ng-controller="weather-ctrl">
                                 <span ng-if="dayTime">
                                     <span ng-switch="weather.icon">
                                         <span ng-switch-when="clear-day">

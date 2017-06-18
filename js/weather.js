@@ -7,12 +7,11 @@ var darkskyKey = "7e06f9fa850f9c1b4945bea03285eef1";
 
 function init() {
     weatherAPI = "https://api.darksky.net/forecast/";
-    crossOrigin;
     googleMapQuery = "https://www.google.ca/maps/api/geocode/";
 }
 
-function weather($scope, $http, $sce) {
-    init();
+function weatherOld($scope, $http, $sce) {
+    weatherAPI = "https://api.darksky.net/forecast/";
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -29,7 +28,9 @@ function weather($scope, $http, $sce) {
     }
 }
 
-function getLocalWeather(lat, lon, scope, http, sce) {
+function getWeather(scope, http, sce, latlng) {
+    weatherAPI = "https://api.darksky.net/forecast/";
+
     scope.weather = {
         icon: "cloudy",
         summary: "cloudy",
@@ -41,9 +42,11 @@ function getLocalWeather(lat, lon, scope, http, sce) {
     weatherAPI = sce.trustAsResourceUrl(
         (
             weatherAPI + darkskyKey
-            + "/" + lat + "," + lon
+            + "/" + latlng.lat + "," + latlng.lng
         )
     );
+
+    console.log(latlng);
 
     http.jsonp(weatherAPI).then(
         function (response) {
@@ -66,7 +69,8 @@ function getLocalWeather(lat, lon, scope, http, sce) {
     );
 }
 
-function getRegion(lat, lon, scope, http, sce) {
+function getRegion(scope, http, sce, latlng) {
+    googleMapQuery = "https://www.google.ca/maps/api/geocode/";
     scope.location = {
         city: "Nanchang",
         region: "JX",
@@ -74,7 +78,7 @@ function getRegion(lat, lon, scope, http, sce) {
     }
 
     googleMapQuery += (
-        "json?latlng=" + lat + "," + lon
+        "json?latlng=" + latlng.lat + "," + latlng.lng
     );
     googleMapQuery = sce.trustAsResourceUrl(googleMapQuery);
 
