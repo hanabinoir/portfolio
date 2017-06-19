@@ -4,30 +4,6 @@ var crossOrigin = "https://crossorigin.me/";
 var darkskyKey = "7e06f9fa850f9c1b4945bea03285eef1";
 // var geocodeApiKey = "AIzaSyAD22NFjqjHyeL38T66nqA478xTkG82V90";
 
-
-function init() {
-    weatherAPI = "https://api.darksky.net/forecast/";
-    googleMapQuery = "https://www.google.ca/maps/api/geocode/";
-}
-
-function weatherOld($scope, $http, $sce) {
-    weatherAPI = "https://api.darksky.net/forecast/";
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            function(position){
-            $scope.$apply(function(){
-                console.log(position);
-                var lat = position.coords.latitude;
-                var lon = position.coords.longitude;
-
-                getLocalWeather(lat, lon, $scope, $http, $sce);
-                getRegion(lat, lon, $scope, $http, $sce);
-            });
-        });
-    }
-}
-
 function getWeather(scope, http, sce, latlng) {
     weatherAPI = "https://api.darksky.net/forecast/";
 
