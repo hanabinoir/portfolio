@@ -170,7 +170,19 @@
                     <div class="thumbnail">
                         <div class="caption">
                             <h3>Random Quotes</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div
+                            class="random-quote" ng-controller="quote-ctrl">
+                                <p class="quote-text">
+                                    {{quote.text}}
+                                </p>
+                                <p class="quote-auther">
+                                    {{quote.author}}
+                                </p>
+                                <a
+                                class="twitter-share-button"
+                                href="https://twitter.com//intent/tweet?text=">
+                                Tweet</a>
+                            </div>
                         </div>
                     </div>
 

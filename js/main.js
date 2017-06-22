@@ -61,3 +61,32 @@ portfolioApp.controller('profile-ctrl',
         );
     }
 );
+
+portfolioApp.controller(
+    'quote-ctrl',
+    function($scope, $http, $sce) {
+        $scope.quote = {
+            text: "Random quote",
+            author: "hanabinoir"
+        }
+
+        var quoteAPI = "http://quotesondesign.com/wp-json/posts?" + "filter[orderby]=rand&filter[posts_per_page]=1&callback=?";
+        var tweetBtn = angular.element(
+            document.getElementsByClassName("twitter-share-button")
+        );
+        var tweetUrl = tweetBtn.attr('href');
+
+        $http({
+            method: "GET",
+            url: quoteAPI
+        }).then(
+            function(response) {
+                var quote = response.data;
+                console.log(quote);
+            }
+        );
+
+        tweetUrl += $scope.quote.text + " @ " + $scope.quote.author;
+        tweetBtn.attr('href', tweetUrl);
+    }
+);
