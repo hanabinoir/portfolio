@@ -70,7 +70,7 @@ portfolioApp.controller(
             author: "hanabinoir"
         }
 
-        var quoteAPI = "https://quotesondesign.com/wp-json/posts?" + "filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=?";
+        var quoteAPI = "https://quotesondesign.com/wp-json/posts?" + "filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=";
         var tweetBtn = angular.element(
             document.getElementsByClassName("twitter-share-button")
         );
@@ -81,6 +81,8 @@ portfolioApp.controller(
             function(response) {
                 var quote = response.data;
                 console.log(quote);
+                $scope.quote.text = quote.text;
+                $scope.quote.author = quote.title;
             }
         );
 
