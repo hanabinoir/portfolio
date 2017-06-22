@@ -70,16 +70,14 @@ portfolioApp.controller(
             author: "hanabinoir"
         }
 
-        var quoteAPI = "http://quotesondesign.com/wp-json/posts?" + "filter[orderby]=rand&filter[posts_per_page]=1&callback=?";
+        var quoteAPI = "http://quotesondesign.com/wp-json/posts?" + "filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=?";
         var tweetBtn = angular.element(
             document.getElementsByClassName("twitter-share-button")
         );
         var tweetUrl = tweetBtn.attr('href');
 
-        $http({
-            method: "GET",
-            url: quoteAPI
-        }).then(
+        quoteAPI = $sce.trustAsResourceUrl(quoteAPI);
+        $http.jsonp(quoteAPI).then(
             function(response) {
                 var quote = response.data;
                 console.log(quote);
