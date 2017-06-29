@@ -30,6 +30,14 @@ div.location-details > p {
     margin-top: 5px;
 }
 
+div.random-quote {
+    text-align: left;
+}
+
+p.quote-auther {
+    text-align: right;
+}
+
 img.powered-by-darksky {
     height: 48px;
 }
