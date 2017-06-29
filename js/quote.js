@@ -12,10 +12,9 @@ function getRandomQuote($scope, $http) {
 
     // quoteAPI = $sce.trustAsResourceUrl(quoteAPI);
     $http({
-        method: "POST",
         url: quoteAPI,
         headers: {
-             "X-Mashape-Key": "OivH71yd3tmshl9YKzFH7BTzBVRQp1RaKLajsnafgL2aPsfP9V",
+             "X-Mashape-Key": "OivH71yd3tmshl9YKzFH7BTzBVRQp1RaKLajsnafgL2aPsfP9V"
         }
     }).then(
         function(response) {
