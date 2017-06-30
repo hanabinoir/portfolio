@@ -1,35 +1,35 @@
-$(document).ready(function() {
-    getRandomQuote();
+function getRandomQuote($scope, $http) {
+    $scope.quote = {
+        "text": "Random quote",
+        "author": "hanabinoir"
+    };
+    $scope.generate = function() {
+        var quoteAPI = "https://andruxnet-random-famous-quotes.p.mashape.com/cat=";
 
-    $("i#random-quote").on('click', function(event) {
-        event.preventDefault();
-        /* Act on the event */
-        getRandomQuote();
-    });
-});
+        $http({
+            headers: {
+              "X-Mashape-Key": "OivH71yd3tmshl9YKzFH7BTzBVRQp1RaKLajsnafgL2aPsfP9V"
+            },
+            url: quoteAPI
+        }).then(
+            function(response) {
+                var quote = response.data;
+                var tweet = angular.element(
+                    document.querySelector('#tweet')
+                );
+                var query = "https://twitter.com/intent/tweet?text=";
 
-function getRandomQuote() {
-    var quoteAPI = "https://andruxnet-random-famous-quotes.p.mashape.com/cat=";
+                $scope.quote.text = quote.quote;
+                $scope.quote.author = quote.author;
+                query += (
+                    $scope.quote.text + "%20--%20" +
+                    $scope.quote.author + "%20%20@hanabinoir"
+                );
 
-    $.ajax({
-        headers: {
-          "X-Mashape-Key": "OivH71yd3tmshl9YKzFH7BTzBVRQp1RaKLajsnafgL2aPsfP9V",
-          "Accept": "application/json",
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        url: quoteAPI,
-        success: function(quote) {
-            console.log(quote);
-            $('.quote-text').html(quote.quote);
-            $('.quote-author').html("-- " + quote.author);
+                tweet.attr('href', query);
+            }
+        );
+    };
 
-            $(".twitter-share-button")
-            .attr(
-                'data-text',
-                quote.quote + " -- " +
-                quote.author + " @hanabinoir"
-            );
-            $.getScript("https://platform.twitter.com/widgets.js");
-        }
-    })
+    $scope.generate();
 }

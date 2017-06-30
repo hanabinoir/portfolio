@@ -171,20 +171,20 @@
                         <div class="caption">
                             <h3>
                                 Random Quotes
-                                <i class="fa fa-refresh btn btn-default"
-                                aria-hidden="true"
-                                id="random-quote"></i>
                             </h3>
                             <div
-                            class="random-quote">
-                                <p class="quote-text"></p>
-                                <p class="quote-author"></p>
-                                <div class="tweet">
-                                    <a twitter href="https://twitter.com/share" class="twitter-share-button"
-                                    href="https://twitter.com//intent/tweet?"
-                                    data-show-count="false">Tweet</a>
-                                </div>
-                                <!-- <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+                            class="random-quote" ng-controller="quote-ctrl">
+                                {{quote.text}}<br>
+                                <p class="quote-author">
+                                    -- {{quote.author}}
+                                </p><br>
+                                <a id="tweet" href="https://twitter.com/intent/tweet?text=" target="_blank"><i
+                                class="fa fa-twitter btn btn-primary"
+                                aria-hidden="true"></i></a>
+                                <i
+                                ng-click="generate()"
+                                class="fa fa-refresh btn btn-default"
+                                aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>

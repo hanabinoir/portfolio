@@ -30,7 +30,7 @@ div.location-details > p {
     margin-top: 5px;
 }
 
-p.quote-text, div.tweet {
+div.random-quote {
     text-align: left;
 }
 

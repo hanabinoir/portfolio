@@ -60,3 +60,8 @@ portfolioApp.controller('profile-ctrl',
         );
     }
 );
+
+portfolioApp.controller(
+    'quote-ctrl',
+    getRandomQuote
+);
