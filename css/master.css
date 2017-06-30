@@ -30,11 +30,11 @@ div.location-details > p {
     margin-top: 5px;
 }
 
-div.random-quote {
+p.quote-text, div.tweet {
     text-align: left;
 }
 
-p.quote-auther {
+p.quote-author {
     text-align: right;
 }
 

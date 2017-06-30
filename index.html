@@ -169,17 +169,22 @@
                 <div class="col-md-6">
                     <div class="thumbnail">
                         <div class="caption">
-                            <h3>Random Quotes</h3>
+                            <h3>
+                                Random Quotes
+                                <i class="fa fa-refresh btn btn-default"
+                                aria-hidden="true"
+                                id="random-quote"></i>
+                            </h3>
                             <div
-                            class="random-quote" ng-controller="quote-ctrl">
-                                {{quote.text}}
-                                <p class="quote-auther">
-                                    -- {{quote.author}}
-                                </p>
-                                <a
-                                class="twitter-share-button"
-                                href="https://twitter.com//intent/tweet?text=">
-                                Tweet</a>
+                            class="random-quote">
+                                <p class="quote-text"></p>
+                                <p class="quote-author"></p>
+                                <div class="tweet">
+                                    <a twitter href="https://twitter.com/share" class="twitter-share-button"
+                                    href="https://twitter.com//intent/tweet?"
+                                    data-show-count="false">Tweet</a>
+                                </div>
+                                <!-- <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
                             </div>
                         </div>
                     </div>
@@ -312,6 +317,7 @@
           crossorigin="anonymous"></script>
         <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://use.fontawesome.com/60b538da21.js"></script>
         <script type="text/javascript" src="./js/weather.js"></script>
         <script type="text/javascript" src="./js/quote.js"></script>
         <script type="text/javascript" src="./js/main.js"></script>

@@ -56,13 +56,7 @@ portfolioApp.controller('profile-ctrl',
                 $scope.latlng = {};
                 $scope.latlng.lat = latlng.lat;
                 $scope.latlng.lng = latlng.lng;
-
             }
         );
     }
-);
-
-portfolioApp.controller(
-    'quote-ctrl',
-    getRandomQuote
 );
