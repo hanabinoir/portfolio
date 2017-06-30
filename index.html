@@ -5,6 +5,7 @@
         <title>My FreeCodeCamp Portfolio</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="./css/master.css">
+        <link rel="stylesheet" href="./css/avatar.css">
         <link rel="stylesheet" href="./css/weather-icons.css">
         <link rel="stylesheet" href="./css/weather-icons-wind.css">
         <link rel="application/octet-stream" href="./font/weathericons-regular-webfont.eot">
@@ -134,23 +135,54 @@
     <body>
         <div class="container" id="portfolio-profile">
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <img src="#" alt="Profile">
+                <div class="col-sm-3">
+                    <div class="card">
+                        <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                        <div class="avatar">
+                            <img src="" alt="Profile" />
                         </div>
-                        <div class="col-xs-6">
-                            <ul>
-                                <li><i>GitHub</i></li>
-                                <li><i>LinkedIn</i></li>
-                                <li><i>freeCodeCamp</i></li>
-                            </ul>
+                        <div class="content">
+                            <p>Web Developer <br>
+                               More description here
+                           </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-xs-3 social-links">
+                    <ul>
+                        <li>
+                            <a
+                            href="https://github.com/hanabinoir" target="_blank">
+                                <i
+                                class="fa fa-github btn" aria-hidden="true">
+                                    hanabinoir
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/vincent-shen-005017a0/"
+                            target="_blank">
+                                <i
+                                class="fa fa-linkedin-square btn" aria-hidden="true">
+                                    Vincent Shen
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.freecodecamp.com/hanabinoir"
+                            target="_blank">
+                                <i
+                                class="fa fa-free-code-camp btn"
+                                aria-hidden="true">
+                                    hanabinoir
+                                </i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
                     <div class="row">
-                        <div class="col-sm-2">
+                        <div class="col-xs-3">
                             <strong>Summary</strong>
                         </div>
                         <div class="col-sm-8" ng-controller="profile-ctrl">
@@ -318,6 +350,7 @@
         <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://use.fontawesome.com/60b538da21.js"></script>
+        <script type="text/javascript" src="./js/avatar.js"></script>
         <script type="text/javascript" src="./js/weather.js"></script>
         <script type="text/javascript" src="./js/quote.js"></script>
         <script type="text/javascript" src="./js/main.js"></script>

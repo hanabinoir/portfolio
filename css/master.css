@@ -30,6 +30,27 @@ div.location-details > p {
     margin-top: 5px;
 }
 
+li {
+    list-style-type: none;
+}
+
+div#portfolio-profile {
+    margin-top: 15px;
+}
+
+div.social-links {
+    padding-left: 0px;
+    margin-left: -5px;
+}
+
+div.social-links > ul {
+    padding-left: 5px;
+}
+
+div#portfolio-projects {
+    margin-top: 15px;
+}
+
 div.random-quote {
     text-align: left;
 }
