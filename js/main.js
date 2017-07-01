@@ -65,3 +65,8 @@ portfolioApp.controller(
     'quote-ctrl',
     getRandomQuote
 );
+
+portfolioApp.controller(
+    'social-links-ctrl',
+    getSocialLinks
+);

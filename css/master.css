@@ -34,7 +34,7 @@ li {
     list-style-type: none;
 }
 
-div#portfolio-profile {
+section {
     margin-top: 15px;
 }
 
@@ -45,10 +45,6 @@ div.social-links {
 
 div.social-links > ul {
     padding-left: 5px;
-}
-
-div#portfolio-projects {
-    margin-top: 15px;
 }
 
 div.random-quote {

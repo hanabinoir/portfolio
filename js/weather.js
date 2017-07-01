@@ -34,13 +34,69 @@ function getWeather(scope, http, sce, latlng) {
             var dayTime = function() {
                 return (6 <= hour < 18);
             }
+            var weatherIcons = document.querySelectorAll('i#weather-icon')
 
             console.log(currentWeather);
+            console.log(weatherIcon);
 
             scope.weather["celsius"] = celsius;
             scope.weather["fahrenheit"] = fahrenheit;
             scope.weather["icon"] = currentWeather.icon;
             scope.weather["summary"] = currentWeather.summary;
+
+            for (icon of weatherIcons) {
+                var weatherIcon = angular.element(icon);
+                
+                weatherIcon.attr('class', 'wi');
+
+                if (dayTime) {
+                    switch (currentWeather.icon) {
+                        case "clear-day":
+                            weatherIcon.addClass('wi-day-sunny')
+                            break;
+                        case "cloudy":
+                            weatherIcon.addClass('wi-day-cloudy')
+                            break;
+                        case "partly-cloudy-day":
+                            weatherIcon.addClass('wi-day-cloudy')
+                            break;
+                        case "rain":
+                            weatherIcon.addClass('wi-day-rain')
+                            break;
+                        case "sleet":
+                            weatherIcon.addClass('wi-day-sleet')
+                            break;
+                        case "fog":
+                            weatherIcon.addClass('wi-day-fog')
+                            break;
+                        default:
+                            weatherIcon.addClass('wi-day-hail')
+                    }
+                } else {
+                    switch (currentWeather.icon) {
+                        case "clear-night":
+                            weatherIcon.addClass('wi-night-clear')
+                            break;
+                        case "cloudy":
+                            weatherIcon.addClass('wi-night-cloudy')
+                            break;
+                        case "rain":
+                            weatherIcon.addClass('wi-night-rain')
+                            break;
+                        case "partly-cloudy-night":
+                            weatherIcon.addClass('wi-night-partly-cloudy')
+                            break;
+                        case "windy":
+                            weatherIcon.addClass('wi-night-windy')
+                            break;
+                        case "fog":
+                            weatherIcon.addClass('wi-night-fog')
+                            break;
+                        default:
+                            weatherIcon.addClass('wi-night-hail')
+                    }
+                }
+            }
         }
     );
 }
