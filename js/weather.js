@@ -4,7 +4,7 @@ var crossOrigin = "https://crossorigin.me/";
 var darkskyKey = "7e06f9fa850f9c1b4945bea03285eef1";
 // var geocodeApiKey = "AIzaSyAD22NFjqjHyeL38T66nqA478xTkG82V90";
 
-function getWeather(scope, http, sce, latlng) {
+function Weather(scope, http, sce, latlng) {
     weatherAPI = "https://api.darksky.net/forecast/";
 
     scope.weather = {
@@ -46,7 +46,7 @@ function getWeather(scope, http, sce, latlng) {
 
             for (icon of weatherIcons) {
                 var weatherIcon = angular.element(icon);
-                
+
                 weatherIcon.attr('class', 'wi');
 
                 if (dayTime) {
@@ -101,7 +101,7 @@ function getWeather(scope, http, sce, latlng) {
     );
 }
 
-function getRegion(scope, http, sce, latlng) {
+function Region(scope, http, sce, latlng) {
     googleMapQuery = "https://www.google.ca/maps/api/geocode/";
     scope.location = {
         city: "Nanchang",

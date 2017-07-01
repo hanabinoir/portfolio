@@ -1,4 +1,4 @@
-function getRandomQuote($scope, $http) {
+function RandomQuote($scope, $http) {
     $scope.quote = {
         "text": "Random quote",
         "author": "hanabinoir"

@@ -1,4 +1,4 @@
-function getSocialLinks($scope) {
+function SocialLinks($scope) {
     $scope.socialLinks = {
         "GitHub": {
             "href": "https://github.com/hanabinoir",

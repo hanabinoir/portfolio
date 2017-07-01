@@ -32,7 +32,7 @@ portfolioApp.controller(
     function($scope, $http, $sce, geocode) {
         geocode().then(
             function(latlng) {
-                getWeather($scope, $http, $sce, latlng)
+                Weather($scope, $http, $sce, latlng)
             }
         );
     }
@@ -43,19 +43,7 @@ portfolioApp.controller(
     function($scope, $http, $sce, geocode) {
         geocode().then(
             function(latlng) {
-                getRegion($scope, $http, $sce, latlng)
-            }
-        );
-    }
-);
-
-portfolioApp.controller('profile-ctrl',
-    function($scope, geocode) {
-        geocode().then(
-            function(latlng) {
-                $scope.latlng = {};
-                $scope.latlng.lat = latlng.lat;
-                $scope.latlng.lng = latlng.lng;
+                Region($scope, $http, $sce, latlng)
             }
         );
     }
@@ -63,10 +51,15 @@ portfolioApp.controller('profile-ctrl',
 
 portfolioApp.controller(
     'quote-ctrl',
-    getRandomQuote
+    RandomQuote
 );
 
 portfolioApp.controller(
     'social-links-ctrl',
-    getSocialLinks
+    SocialLinks
+);
+
+portfolioApp.controller(
+    'summary-ctrl',
+    Summary
 );

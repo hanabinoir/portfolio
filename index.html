@@ -19,59 +19,6 @@
                 <div
                 class="col-md-6 weather-details" ng-controller="weather-ctrl">
                     <p>
-                        <!-- <span ng-if="dayTime">
-                            <span ng-switch="weather.icon">
-                                <span ng-switch-when="clear-day">
-                                    <i class="wi wi-day-sunny"></i>
-                                </span>
-                                <span ng-switch-when="cloudy">
-                                    <i class="wi wi-day-cloudy"></i>
-                                </span>
-                                <span ng-switch-when="partly-cloudy-day">
-                                    <i class="wi wi-day-cloudy"></i>
-                                </span>
-                                <span ng-switch-when="rain">
-                                    <i class="wi wi-day-rain"></i>
-                                </span>
-                                <span ng-switch-when="sleet">
-                                    <i class="wi wi-day-sleet"></i>
-                                </span>
-                                <span ng-switch-when="windy">
-                                    <i class="wi wi-day-windy"></i>
-                                </span>
-                                <span ng-switch-when="fog">
-                                    <i class="wi wi-day-fog"></i>
-                                </span>
-                                <span ng-switch-default>
-                                    <i class="wi wi-day-hail"></i>
-                                </span>
-                            </span>
-                        </span>
-                        <span ng-else>
-                            <span ng-switch="weather.icon">
-                                <span ng-switch-when="clear-night">
-                                    <i class="wi wi-night-clear"></i>
-                                </span>
-                                <span ng-switch-when="cloudy">
-                                    <i class="wi wi-night-cloudy"></i>
-                                </span>
-                                <span ng-switch-when="rain">
-                                    <i class="wi wi-night-rain"></i>
-                                </span>
-                                <span ng-switch-when="partly-cloudy-night">
-                                    <i class="wi wi-night-partly-cloudy"></i>
-                                </span>
-                                <span ng-switch-when="windy">
-                                    <i class="wi wi-night-windy"></i>
-                                </span>
-                                <span ng-switch-when="fog">
-                                    <i class="wi wi-night-fog"></i>
-                                </span>
-                                <span ng-switch-default>
-                                    <i class="wi wi-night-hail"></i>
-                                </span>
-                            </span>
-                        </span> -->
                         <span>
                             <i id="weather-icon"></i>
                         </span>
@@ -105,29 +52,29 @@
     <header class="page-header">
         <div class="container">
             <div class="row text-center">
-                <div class="col-xs-2 app-name">
-                    <a href="#top">
+                <div class="col-xs-2">
+                    <a href="#top" class="app-name">
                         <h3>Portfolio</h3>
                     </a>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="row nav-bar">
-                        <div class="col-xs-3">
+                        <div class="col-sm-3">
                             <a href="#portfolio-profile">
                                 <h4>Profile</h4>
                             </a>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-sm-3">
                             <a href="#portfolio-projects">
                                 <h4>Projects</h4>
                             </a>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-sm-3">
                             <a href="#portfolio-games">
                                 <h4>Games</h4>
                             </a>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-sm-3">
                             <a href="#portfolio-contact">
                                 <h4>Contact</h4>
                             </a>
@@ -144,11 +91,14 @@
                     <div class="card">
                         <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                         <div class="avatar">
-                            <img src="" alt="Profile" />
+                            <img
+                            src="./img/ikari_shinji.jpg"
+                            alt="Profile" />
                         </div>
                         <div class="content">
-                            <p>Web Developer <br>
-                               More description here
+                            <p>
+                                <b>Vincent Shen</b> <br>
+                               Web Developer
                            </p>
                         </div>
                     </div>
@@ -168,18 +118,15 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-sm-6">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <strong>Summary</strong>
-                        </div>
-                        <div class="col-sm-8" ng-controller="profile-ctrl">
-                            <p>
-                                lat: {{latlng.lat}} <br>
-                                lng: {{latlng.lng}}
-                            </p>
-                        </div>
-                    </div>
+                <div
+                class="col-sm-6"
+                ng-controller="summary-ctrl">
+                    <li ng-repeat="(category, content) in summary">
+                        <ul>
+                            <strong>{{category}}</strong>:
+                            {{content}}
+                        </ul>
+                    </li>
                 </div>
             </div>
         </section>
@@ -294,9 +241,9 @@
         <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://use.fontawesome.com/60b538da21.js"></script>
-        <script type="text/javascript" src="./js/avatar.js"></script>
         <script type="text/javascript" src="./js/weather.js"></script>
         <script type="text/javascript" src="./js/social-links.js"></script>
+        <script type="text/javascript" src="./js/profile-summary.js"></script>
         <script type="text/javascript" src="./js/quote.js"></script>
         <script type="text/javascript" src="./js/main.js"></script>
     </footer>

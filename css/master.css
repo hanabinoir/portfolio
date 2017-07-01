@@ -1,4 +1,32 @@
 
+a.app-name {
+    background-color: white;
+    color: #877F6C;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a.app-name:hover {
+    background-color: #877F6C;
+    color: white;
+}
+
+div.nav-bar > div > a {
+    background-color: white;
+    color: #B4A582;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+div.nav-bar > div > a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
 footer {
     background-color: rgb(55, 156, 150);
     width: 100%;
