@@ -37,7 +37,6 @@ function Weather(scope, http, sce, latlng) {
             var weatherIcons = document.querySelectorAll('i#weather-icon')
 
             console.log(currentWeather);
-            console.log(weatherIcon);
 
             scope.weather["celsius"] = celsius;
             scope.weather["fahrenheit"] = fahrenheit;

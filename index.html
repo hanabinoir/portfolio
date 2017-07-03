@@ -14,7 +14,10 @@
         <link rel="application/font-woff" href="./font/weathericons-regular-webfont.woff">
         <link rel="application/octet-stream" href="./font/weathericons-regular-webfont.woff2">
 
-        <div class="container" name="top">
+
+    </head>
+    <header class="page-header">
+        <div class="container heading-info" name="top">
             <div class="row text-center">
                 <div
                 class="col-md-6 weather-details" ng-controller="weather-ctrl">
@@ -48,8 +51,6 @@
                 </div>
             </div>
         </div>
-    </head>
-    <header class="page-header">
         <div class="container">
             <div class="row text-center">
                 <div class="col-xs-2">
@@ -89,7 +90,10 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="card">
-                        <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                        <canvas
+                        class="header-bg"
+                        width="250"
+                        height="70"></canvas>
                         <div class="avatar">
                             <img
                             src="./img/ikari_shinji.jpg"
@@ -136,19 +140,24 @@
         id="portfolio-projects">
         <h5>Real-time Projects</h5>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="thumbnail">
                         <div class="caption">
-                            <h3>
-                                Random Quotes
-                            </h3>
+                            <h3>Random Quotes</h3>
                             <div
-                            class="random-quote" ng-controller="quote-ctrl">
-                                {{quote.text}}<br>
-                                <p class="quote-author">
-                                    -- {{quote.author}}
-                                </p><br>
-                                <a id="tweet" href="https://twitter.com/intent/tweet?text=" target="_blank"><i
+                            class="random-quote"
+                            ng-controller="quote-ctrl">
+                                <div class="project-bg rq">
+                                    {{quote.text}}<br><br>
+                                    <p class="quote-author">
+                                        <i>
+                                            {{quote.author}}
+                                        </i>
+                                    </p>
+                                </div>
+                                <a
+                                id="tweet" href="https://twitter.com/intent/tweet?text="
+                                target="_blank"><i
                                 class="fa fa-twitter btn btn-primary"
                                 aria-hidden="true"></i></a>
                                 <i
@@ -159,53 +168,96 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="thumbnail">
                         <div class="caption">
                             <h3>Local Weather</h3>
-                            <h4 ng-controller="weather-ctrl">
-                                <span>
-                                    <i id="weather-icon"></i>
-                                </span>
-                                <span id="weather-summary">
-                                    {{weather.summary}}
-                                </span>
-                                <span id="weather-temporature">
-                                    {{
-                                        (weather.unit == "celsius") ?
-                                        weather.celsius.toFixed(2) :
-                                        weather.fahrenheit.toFixed(2)
-                                    }}
-                                </span>
-                                <i
-                                id="weather-unit-celsius"
-                                class="wi wi-celsius btn unit unit-selected" ng-click="weather.unit = 'celsius'"></i>/
-                                <i
-                                id="weather-unit-fahrenheit"
-                                class="wi wi-fahrenheit btn unit" ng-click="weather.unit = 'fahrenheit'"></i>
-                            </h4>
+                            <div class="project-bg lw">
+                                <h4 ng-controller="weather-ctrl">
+                                    <span>
+                                        <i id="weather-icon"></i>
+                                    </span>
+                                    <span id="weather-summary">
+                                        {{weather.summary}}
+                                    </span>
+                                    <span id="weather-temporature">
+                                        {{
+                                            (weather.unit == "celsius") ?
+                                            weather.celsius.toFixed(2) :
+                                            weather.fahrenheit.toFixed(2)
+                                        }}
+                                    </span>
+                                    <i
+                                    id="weather-unit-celsius"
+                                    class="wi wi-celsius btn unit unit-selected" ng-click="weather.unit = 'celsius'"></i>/
+                                    <i
+                                    id="weather-unit-fahrenheit"
+                                    class="wi wi-fahrenheit btn unit" ng-click="weather.unit = 'fahrenheit'"></i>
+                                </h4>
+                                <p ng-controller="region-ctrl">
+                                    <span id="location-city">
+                                        {{location.city}}
+                                    </span>,
+                                    <span id="location-region">
+                                        {{location.region}}
+                                    </span>,
+                                    <span id="location-country">
+                                        {{location.country}}
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Twitch Bridge</h3>
+                            <div class="project-bg tb">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="thumbnail">
                         <div class="caption">
                             <h3>Wiki Generator</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
+                            <div class="project-bg wg">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="thumbnail">
                         <div class="caption">
-                            <h3>Twitch Bridge</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
+                            <h3>Calculator</h3>
+                            <div class="project-bg calc">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Pomodoro Clock</h3>
+                            <div class="project-bg pc">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -241,6 +293,7 @@
         <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://use.fontawesome.com/60b538da21.js"></script>
+        <!-- <script type="text/javascript" src="./js/style.js"></script> -->
         <script type="text/javascript" src="./js/weather.js"></script>
         <script type="text/javascript" src="./js/social-links.js"></script>
         <script type="text/javascript" src="./js/profile-summary.js"></script>
