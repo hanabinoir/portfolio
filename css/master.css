@@ -86,11 +86,25 @@ img.powered-by-darksky {
     height: 48px;
 }
 
+.thumbnail {
+    height: 420px;
+}
+
 .project-bg  {
     display: block;
+    height: 320px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    margin-top: 10px;
     margin-bottom: 3px;
     padding-left: 3px;
     padding-right: 3px;
+}
+
+.rq {
+    height: 150px;
+}
+
+.lw {
+    height: 75px;
 }
