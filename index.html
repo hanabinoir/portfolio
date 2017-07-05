@@ -212,21 +212,28 @@
                             <div
                             class="text-left project-bg wg"
                             ng-controller="wiki-ctrl">
-                                <div class="search">
-                                    <span class="fa fa-search"></span>
-                                    <input placeholder="Keywords">
-                                    <a
-                                    id="random-wiki"
-                                    href="https://{{lang.code}}.wikipedia.org/wiki/Special:Random"
-                                    target="_blank">
-                                        <i
-                                        class="fa fa-question-circle" aria-hidden="true"></i>
-                                    </a>
-                                    <select
-                                    id="langs"
-                                    ng-model="lang"
-                                    ng-options="lang.value for lang in langs"></select>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <div class="search">
+                                            <span class="fa fa-search"></span>
+                                            <input placeholder="Keywords">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <a
+                                        id="random-wiki"
+                                        href="https://{{lang.code}}.wikipedia.org/wiki/Special:Random"
+                                        target="_blank">
+                                            <i
+                                            class="fa fa-question-circle" aria-hidden="true"></i>
+                                        </a>
+                                        <select
+                                        id="langs"
+                                        ng-model="lang"
+                                        ng-options="lang.value for lang in langs"></select>
+                                    </div>
                                 </div>
+
                                 <div
                                 class="search-results" ng-repeat="wiki in wikiList">
                                     <p>{{wiki.section}}</p>
