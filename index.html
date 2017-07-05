@@ -209,12 +209,30 @@
                     <div class="thumbnail">
                         <div class="caption">
                             <h3>Wiki Generator</h3>
-                            <div class="project-bg wg">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
+                            <div
+                            class="text-left project-bg wg"
+                            ng-controller="wiki-ctrl">
+                                <div class="search">
+                                    <span class="fa fa-search"></span>
+                                    <input placeholder="Keywords">
+                                    <a
+                                    id="random-wiki"
+                                    href="https://{{lang.code}}.wikipedia.org/wiki/Special:Random"
+                                    target="_blank">
+                                        <i
+                                        class="fa fa-question-circle" aria-hidden="true"></i>
+                                    </a>
+                                    <select
+                                    id="langs"
+                                    ng-model="lang"
+                                    ng-options="lang.value for lang in langs"></select>
+                                </div>
+                                <div
+                                class="search-results" ng-repeat="wiki in wikiList">
+                                    <p>{{wiki.section}}</p>
+                                    <p>{{wiki.content}}</p>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -289,11 +307,11 @@
         <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://use.fontawesome.com/60b538da21.js"></script>
-        <!-- <script type="text/javascript" src="./js/style.js"></script> -->
         <script type="text/javascript" src="./js/weather.js"></script>
         <script type="text/javascript" src="./js/social-links.js"></script>
         <script type="text/javascript" src="./js/profile-summary.js"></script>
         <script type="text/javascript" src="./js/quote.js"></script>
+        <script type="text/javascript" src="./js/wiki.js"></script>
         <script type="text/javascript" src="./js/main.js"></script>
     </footer>
 </html>

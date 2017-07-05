@@ -97,8 +97,7 @@ img.powered-by-darksky {
     border-radius: 4px;
     margin-top: 10px;
     margin-bottom: 3px;
-    padding-left: 3px;
-    padding-right: 3px;
+    padding: 5px;
 }
 
 .rq {
@@ -106,5 +105,21 @@ img.powered-by-darksky {
 }
 
 .lw {
-    height: 75px;
+    height: 80px;
+}
+
+.search { position: relative; }
+.search > input { text-indent: 30px;}
+.search > .fa-search {
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 7px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+a:has(> .fa-question-circle) {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
 }

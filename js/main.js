@@ -63,3 +63,8 @@ portfolioApp.controller(
     'summary-ctrl',
     Summary
 );
+
+portfolioApp.controller(
+    'wiki-ctrl',
+    WikiSearch
+);
