@@ -119,7 +119,10 @@ img.powered-by-darksky {
 }
 
 a:has(> .fa-question-circle) {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
     text-decoration: none;
+}
+
+select#langs {
+    margin-right: 3px;
 }
