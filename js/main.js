@@ -27,6 +27,20 @@ portfolioApp.factory(
     }
 );
 
+portfolioApp.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
+});
+
 portfolioApp.controller(
     'weather-ctrl',
     function($scope, $http, $sce, geocode) {
@@ -69,16 +83,7 @@ portfolioApp.controller(
     WikiSearch
 );
 
-portfolioApp.directive('ngEnter', function () {
-    return function (scope, element, attrs) {
-        element.bind("keydown keypress", function (event) {
-            if(event.which === 13) {
-                scope.$apply(function (){
-                    scope.$eval(attrs.ngEnter);
-                });
-
-                event.preventDefault();
-            }
-        });
-    };
-});
+portfolioApp.controller(
+    'stream-ctrl',
+    TwitchStream
+);

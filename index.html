@@ -212,7 +212,7 @@
                             class="text-left project-bg wg"
                             ng-controller="wiki-ctrl">
                                 <div class="row text-center">
-                                    <div class="col-xs-8">
+                                    <div class="col-sm-8">
                                         <div class="search">
                                             <span
                                             class="fa fa-search" ng-click="search()"></span>
@@ -221,7 +221,7 @@
                                             id="keywords" placeholder="Keywords">
                                         </div>
                                     </div>
-                                    <div class="col-xs-4">
+                                    <div class="col-sm-4">
                                         <a
                                         id="random-wiki"
                                         href="https://{{lang.code}}.wikipedia.org/wiki/Special:Random"
@@ -257,10 +257,49 @@
                     <div class="thumbnail">
                         <div class="caption">
                             <h3>Twitch Bridge</h3>
-                            <div class="project-bg tb">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
+                            <div class="search">
+                                <span
+                                class="fa fa-search" ng-click="FindChannel()"></span>
+                                <input
+                                ng-enter="FindChannel()"
+                                id="channel"
+                                placeholder="Channel">
+                            </div>
+                            <div
+                            class="project-bg tb"
+                            ng-controller="stream-ctrl">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <strong>Channels</strong>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <strong>Stream</strong>
+                                    </div>
+                                </div>
+                                <div
+                                class="row"
+                                ng-repeat="channel in channels">
+                                    <div class="col-sm-6">
+                                        <div
+                                        class="row channel">
+                                            <div class="col-xs-4">
+                                                <img
+                                                ng-src="{{channel.logo}}"
+                                                alt="X">
+                                            </div>
+                                            <div class="col-xs-8">
+                                                {{channel.display_name}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="stream">
+                                            <a href="{{channel.url}}">
+                                                {{channel.status}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -276,7 +315,6 @@
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                 </p>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -327,6 +365,7 @@
         <script type="text/javascript" src="./js/profile-summary.js"></script>
         <script type="text/javascript" src="./js/quote.js"></script>
         <script type="text/javascript" src="./js/wiki.js"></script>
+        <script type="text/javascript" src="./js/stream.js"></script>
         <script type="text/javascript" src="./js/main.js"></script>
     </footer>
 </html>
