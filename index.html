@@ -257,17 +257,17 @@
                     <div class="thumbnail">
                         <div class="caption">
                             <h3>Twitch Bridge</h3>
-                            <div class="search">
-                                <span
-                                class="fa fa-search" ng-click="FindChannel()"></span>
-                                <input
-                                ng-enter="FindChannel()"
-                                id="channel"
-                                placeholder="Channel">
-                            </div>
                             <div
                             class="project-bg tb"
                             ng-controller="stream-ctrl">
+                                <div class="search">
+                                    <span
+                                    class="fa fa-search" ng-click="findChannel()"></span>
+                                    <input
+                                    ng-enter="findChannel()"
+                                    id="channel"
+                                    placeholder="Channel">
+                                </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <strong>Channels</strong>
