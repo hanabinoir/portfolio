@@ -43,24 +43,21 @@ function FccFollows(scope, http, q) {
             var follows = response.data.follows;
             scope.channels = [];
 
-            for (var i = 0; i < follows.length; i++) {
-                var channelInfo = follows[i].channel;
-
-                if (follows[i].channel.status == null) {
-                    channelInfo.status = "offline";
-                } else {
-                    CheckChannelStatus(
-                        channelInfo.name, http, q
-                    ).then(
-                        function(status) {
-                            channelInfo["status"] = status;
-                        }
-                    );
+            follows.forEach(
+                function(follow) {
+                    var channelInfo = follow.channel
+                    if (channelInfo.status != "offline") {
+                        CheckChannelStatus(
+                            channelInfo.name, http, q
+                        ).then(
+                            function(status) {
+                                channelInfo.status = status;
+                            }
+                        );
+                    }
+                    scope.channels.push(channelInfo);
                 }
-
-                console.log(channelInfo.status);
-                scope.channels.push(channelInfo);
-            }
+            );
             console.log(scope.channels);
         },
         failCallbacks
