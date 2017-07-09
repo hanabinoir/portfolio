@@ -58,24 +58,29 @@
                         <h3>Portfolio</h3>
                     </a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="row nav-bar">
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <a href="#portfolio-profile">
                                 <h4>Profile</h4>
                             </a>
                         </div>
-                        <div class="col-sm-3">
-                            <a href="#portfolio-projects">
-                                <h4>Projects</h4>
+                        <div class="col-sm-2">
+                            <a href="#api-projects">
+                                <h4>API Projects</h4>
                             </a>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
+                            <a href="#other-tools">
+                                <h4>Other Tools</h4>
+                            </a>
+                        </div>
+                        <div class="col-sm-2">
                             <a href="#portfolio-games">
                                 <h4>Games</h4>
                             </a>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <a href="#portfolio-contact">
                                 <h4>Contact</h4>
                             </a>
@@ -137,33 +142,39 @@
 
         <section
         class="container text-center"
-        id="portfolio-projects">
+        id="api-projects">
+            <h3>API Projects</h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="thumbnail">
                         <div class="caption">
-                            <h3>Local Weather</h3>
+                            <a href="https://darksky.net/poweredby/" target="_blank">
+                                <img
+                                class="powered-by-darksky"
+                                src="https://darksky.net/dev/img/attribution/poweredby-oneline.png"
+                                alt="Powered by Dark Sky">
+                            </a>
                             <div class="project-bg lw">
                                 <h4 ng-controller="weather-ctrl">
-                                    <span>
+                                    <p>
                                         <i id="weather-icon"></i>
-                                    </span>
-                                    <span id="weather-summary">
                                         {{weather.summary}}
-                                    </span>
-                                    <span id="weather-temporature">
-                                        {{
-                                            (weather.unit == "celsius") ?
-                                            weather.celsius.toFixed(2) :
-                                            weather.fahrenheit.toFixed(2)
-                                        }}
-                                    </span>
-                                    <i
-                                    id="weather-unit-celsius"
-                                    class="wi wi-celsius btn unit unit-selected" ng-click="weather.unit = 'celsius'"></i>/
-                                    <i
-                                    id="weather-unit-fahrenheit"
-                                    class="wi wi-fahrenheit btn unit" ng-click="weather.unit = 'fahrenheit'"></i>
+                                    </p>
+                                    <p>
+                                        <span id="weather-temporature">
+                                            {{
+                                                (weather.unit == "celsius") ?
+                                                weather.celsius.toFixed(2) :
+                                                weather.fahrenheit.toFixed(2)
+                                            }}
+                                        </span>
+                                        <i
+                                        id="weather-unit-celsius"
+                                        class="wi wi-celsius btn unit unit-selected" ng-click="weather.unit = 'celsius'"></i>/
+                                        <i
+                                        id="weather-unit-fahrenheit"
+                                        class="wi wi-fahrenheit btn unit" ng-click="weather.unit = 'fahrenheit'"></i>
+                                    </p>
                                 </h4>
                                 <p ng-controller="region-ctrl">
                                     <span id="location-city">
@@ -177,7 +188,7 @@
                                     </span>
                                 </p>
                             </div>
-                            <h3>Random Quote</h3>
+                            <h4>Random Quote</h4>
                             <div
                             class="random-quote"
                             ng-controller="quote-ctrl">
@@ -207,7 +218,7 @@
                 <div class="col-md-4">
                     <div class="thumbnail">
                         <div class="caption">
-                            <h3>Wiki Generator</h3>
+                            <h4>Wiki Generator</h4>
                             <div
                             class="text-left project-bg wg"
                             ng-controller="wiki-ctrl">
@@ -267,6 +278,9 @@
                                     ng-enter="findChannel()"
                                     id="channel"
                                     placeholder="Channel">
+                                    <i
+                                    class="fa fa-home"
+                                    ng-enter="fccFollows()"></i>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -305,12 +319,15 @@
                     </div>
                 </div>
             </div>
+        </section>
+        <section class="container" id="other-tools">
+            <h3>Other Tools</h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="thumbnail">
                         <div class="caption">
-                            <h3>Calculator</h3>
-                            <div class="project-bg calc">
+                            <h4>Calculator</h4>
+                            <div class="project-bg pc">
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                 </p>
@@ -321,7 +338,7 @@
                 <div class="col-md-4">
                     <div class="thumbnail">
                         <div class="caption">
-                            <h3>Pomodoro Clock</h3>
+                            <h4>Pomodoro Clock</h4>
                             <div class="project-bg pc">
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -347,12 +364,6 @@
         </section>
     </body>
     <footer class="text-center">
-        <a href="https://darksky.net/poweredby/" target="_blank">
-            <img
-            class="powered-by-darksky"
-            src="https://darksky.net/dev/img/attribution/poweredby-oneline.png"
-            alt="Powered by Dark Sky">
-        </a>
         <script
           src="https://code.jquery.com/jquery-3.2.1.js"
           integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="

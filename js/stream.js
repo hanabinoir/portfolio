@@ -1,9 +1,9 @@
-function TwitchStream($scope, $http, $sce, $q) {
+function TwitchStream($scope, $http, $q) {
     $scope.findChannel = function() {
-        FindChannel($scope, $http, $sce, $q);
+        FindChannel($scope, $http, $q);
     }
     $scope.fccFollows = function() {
-        FccFollows($scope, $http, $sce, $q);
+        FccFollows($scope, $http, $q);
     }
 
     $scope.fccFollows();
@@ -13,59 +13,53 @@ function failCallbacks(response) {
     console.log(response.data.msg);
 }
 
-function CheckChannelStatus(streamAPI, http, q) {
-    var status = q.defer();
+function CheckChannelStatus(channelName, http, q) {
+    var status = q.defer(),
+    streamAPI = "https://wind-bow.glitch.me/twitch-api/streams/";
 
-    http.get(streamAPI + channel.name).then(
+    http.get((streamAPI + channelName)).then(
         function (response) {
             data = response.data;
+
             if (data.stream == null) {
                 status.resolve("offline");
             } else {
                 status.resolve(data.stream.channel.status);
             }
-        }
+        },
+        failCallbacks
     );
 
     return status.promise;
 }
 
-function FccFollows(scope, http, sce, q) {
+function FccFollows(scope, http, q) {
     var followsAPI =
     "https://wind-bow.glitch.me/twitch-api/users" +
     "/freecodecamp/follows/channels";
 
-    followsAPI = sce.trustAsResourceUrl(followsAPI);
-
-    http.jsonp(followsAPI).then(
+    http.get(followsAPI).then(
         function(response) {
             var follows = response.data.follows;
             scope.channels = [];
-            for (var i = 0; i < follows.length; i ++) {
-                var channel = follows[i].channel,
-                streamAPI =
-                "https://api.twitch.tv/kraken/streams" + 
-                "?client_id=ytdni97a2f5slkofm4reso3jxu2bed";
 
-                if (channel.status == null) {
-                    channel.status = "offline";
+            for (var i = 0; i < follows.length; i++) {
+                var channelInfo = follows[i].channel;
+
+                if (follows[i].channel.status == null) {
+                    channelInfo.status = "offline";
                 } else {
                     CheckChannelStatus(
-                        streamAPI, http, q
+                        channelInfo.name, http, q
                     ).then(
                         function(status) {
-                            channel.status = status;
+                            channelInfo["status"] = status;
                         }
                     );
                 }
 
-                scope.channels.push({
-                    name: channel.name,
-                    display_name: channel.display_name,
-                    logo: channel.logo,
-                    url: channel.url,
-                    status: channel.status
-                });
+                console.log(channelInfo.status);
+                scope.channels.push(channelInfo);
             }
             console.log(scope.channels);
         },
@@ -73,27 +67,25 @@ function FccFollows(scope, http, sce, q) {
     );
 }
 
-function FindChannel(scope, http, sce, q) {
+function FindChannel(scope, http, q) {
     var channelAPI = "https://wind-bow.glitch.me/twitch-api/channels/",
-    streamAPI = "https://wind-bow.glitch.me/twitch-api/streams/",
     userAPI = "https://wind-bow.glitch.me/twitch-api/users/",
     input = angular.element(
         document.querySelector("input#channel")
     ),
     channel = input.val();
 
-    userAPI = sce.trustAsResourceUrl((userAPI + channel));
-    streamAPI = sce.trustAsResourceUrl((streamAPI + channel));
-
-    http.jsonp(userAPI).then(
+    http.get(
+        (userAPI + channel)
+    ).then(
         function (response) {
             var data = response.data,
-            channel = {};
+            channelInfo = {};
 
             scope.channels = [];
             console.log(data);
             if (data.status && data.status != 200) {
-                channel = {
+                channelInfo = {
                     name: data.status,
                     display_name: data.error,
                     logo: "",
@@ -101,7 +93,7 @@ function FindChannel(scope, http, sce, q) {
                     url: "#"
                 }
             } else {
-                channel = {
+                channelInfo = {
                     name: data.name,
                     display_name: data.display_name,
                     logo: data.logo,
@@ -109,15 +101,15 @@ function FindChannel(scope, http, sce, q) {
                 };
 
                 CheckChannelStatus(
-                    streamAPI, http, q
+                    channelInfo.name, http, q
                 ).then(
                     function(status) {
-                        channel["status"] = status;
+                        channelInfo["status"] = status;
                     }
                 );
             }
 
-            scope.channels.push(channel);
+            scope.channels.push(channelInfo);
         }
     );
 }
