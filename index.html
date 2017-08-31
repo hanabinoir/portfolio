@@ -1,410 +1,333 @@
 <!DOCTYPE html>
 <html ng-app="portfolio">
-    <head>
-        <meta charset="utf-8">
-        <title>Vincent Shen Portfolio</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/master.css">
-        <link rel="stylesheet" href="./css/avatar.css">
-        <link rel="stylesheet" href="./css/weather-icons.css">
-        <link rel="stylesheet" href="./css/weather-icons-wind.css">
-        <link rel="application/octet-stream" href="./font/weathericons-regular-webfont.eot">
-        <link rel="image/svg+xml" href="./font/weathericons-regular-webfont.svg">
-        <link rel="application/octet-stream" href="./font/weathericons-regular-webfont.ttf">
-        <link rel="application/font-woff" href="./font/weathericons-regular-webfont.woff">
-        <link rel="application/octet-stream" href="./font/weathericons-regular-webfont.woff2">
+<head>
+<meta charset="utf-8">
+  <title>Vincent Shen Portfolio</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/master.css">
+  <link rel="stylesheet" href="./css/avatar.css">
+  <link rel="stylesheet" href="./css/weather-icons.css">
+  <link rel="stylesheet" href="./css/weather-icons-wind.css">
+  <link rel="application/octet-stream" href="./font/weathericons-regular-webfont.eot">
+  <link rel="image/svg+xml" href="./font/weathericons-regular-webfont.svg">
+  <link rel="application/octet-stream" href="./font/weathericons-regular-webfont.ttf">
+  <link rel="application/font-woff" href="./font/weathericons-regular-webfont.woff">
+  <link rel="application/octet-stream" href="./font/weathericons-regular-webfont.woff2">
+</head>
 
-
-    </head>
-    <header class="page-header">
-        <div class="container heading-info" name="top">
-            <div class="row text-center">
-                <div
-                class="col-md-6 weather-details" ng-controller="weather-ctrl">
-                    <p>
-                        <span>
-                            <i id="weather-icon"></i>
-                        </span>
-                        <span id="weather-summary">
-                            {{weather.summary}}
-                        </span>
-                        <span id="weather-temporature">
-                            {{weather.celsius.toFixed(2)}}
-                        </span>
-                        <i id="weather-unit-celsius"
-                        class="wi wi-celsius"></i>
-                    </p>
-                </div>
-                <div
-                class="col-md-6 location-details"  ng-controller="region-ctrl">
-                    <p>
-                        <span id="location-city">
-                            {{location.city}}
-                        </span>,
-                        <span id="location-region">
-                            {{location.region}}
-                        </span>,
-                        <span id="location-country">
-                            {{location.country}}
-                        </span>
-                    </p>
-                </div>
-            </div>
+<header class="page-header">
+  <div class="container heading-info" name="top">
+    <div class="row text-center">
+      <div class="col-md-6 weather-details" ng-controller="weather-ctrl">
+        <p>
+          <span>
+            <i id="weather-icon"></i>
+          </span>
+          <span id="weather-summary">
+            {{weather.summary}}
+          </span>
+          <span id="weather-temporature">
+            {{weather.celsius.toFixed(2)}}
+          </span>
+          <i id="weather-unit-celsius" class="wi wi-celsius"></i>
+        </p>
+      </div>
+      <div class="col-md-6 location-details" ng-controller="region-ctrl">
+        <p>
+          <span id="location-city">
+            {{location.city}}
+          </span>,
+          <span id="location-region">
+            {{location.region}}
+          </span>,
+          <span id="location-country">
+            {{location.country}}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-xs-2">
+        <a href="#top" class="app-name">
+          <h3>Portfolio</h3>
+        </a>
+      </div>
+      <div class="col-md-8">
+        <div class="row nav-bar">
+          <div class="col-sm-2">
+            <a href="#portfolio-profile">
+              <h4>Profile</h4>
+            </a>
+          </div>
+          <div class="col-sm-2">
+            <a href="#api-projects">
+              <h4>API Projects</h4>
+            </a>
+          </div>
+          <div class="col-sm-2">
+            <a href="#other-tools">
+              <h4>Other Tools</h4>
+            </a>
+          </div>
+          <div class="col-sm-2">
+            <a href="#portfolio-games">
+              <h4>Games</h4>
+            </a>
+          </div>
+          <div class="col-sm-2">
+            <a href="#portfolio-contact">
+              <h4>Contact</h4>
+            </a>
+          </div>
         </div>
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-xs-2">
-                    <a href="#top" class="app-name">
-                        <h3>Portfolio</h3>
+      </div>
+    </div>
+  </div>
+</header>
+<body>
+  <section class="container" id="portfolio-profile">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card">
+          <canvas class="header-bg" width="250" height="70"></canvas>
+          <div class="avatar">
+            <img src="./img/ikari_shinji.jpg" alt="Profile" />
+          </div>
+          <div class="content">
+            <p>
+              <b>Vincent Shen</b> <br>
+               Web Developer
+             </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3 social-links" ng-controller="social-links-ctrl">
+        <ul ng-repeat="link in socialLinks">
+          <li>
+            <a href="{{link.href}}" target="_blank">
+              <i class="fa {{link.icon}} btn" aria-hidden="true">
+                {{link.username}}
+              </i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-6" ng-controller="summary-ctrl">
+        <li ng-repeat="(category, content) in summary">
+          <ul>
+            <strong>{{category}}</strong>:
+            {{content}}
+          </ul>
+        </li>
+      </div>
+    </div>
+  </section>
+
+  <section class="container text-center" id="api-projects">
+    <h3>API Projects</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <a href="https://darksky.net/poweredby/" target="_blank">
+              <img class="powered-by-darksky" src="https://darksky.net/dev/img/attribution/poweredby-oneline.png" alt="Powered by Dark Sky">
+            </a>
+            <div class="project-bg lw">
+              <h4 ng-controller="weather-ctrl">
+                <p>
+                  <i id="weather-icon"></i>
+                  {{weather.summary}}
+                </p>
+                <p>
+                  <span id="weather-temporature">
+                    {{
+                      (weather.unit == "celsius") ?
+                      weather.celsius.toFixed(2) :
+                      weather.fahrenheit.toFixed(2)
+                    }}
+                  </span>
+                  <i id="weather-unit-celsius" class="wi wi-celsius btn unit unit-selected" ng-click="weather.unit = 'celsius'"></i>/
+                  <i id="weather-unit-fahrenheit" class="wi wi-fahrenheit btn unit" ng-click="weather.unit = 'fahrenheit'"></i>
+                </p>
+              </h4>
+              <p ng-controller="region-ctrl">
+                <span id="location-city">
+                  {{location.city}}
+                </span>,
+                <span id="location-region">
+                  {{location.region}}
+                </span>,
+                <span id="location-country">
+                  {{location.country}}
+                </span>
+              </p>
+            </div>
+            <h4>Random Quote</h4>
+            <div class="random-quote" ng-controller="quote-ctrl">
+              <div class="project-bg rq">
+                <p class="quote-text">
+                  {{quote.text}}
+                </p>
+                <p class="quote-author">
+                  <i>
+                    {{quote.author}}
+                  </i>
+                </p>
+              </div>
+              <a id="tweet" href="https://twitter.com/intent/tweet?text=" target="_blank"><i class="fa fa-twitter btn btn-primary" aria-hidden="true"></i></a>
+              <i ng-click="generate()" class="fa fa-refresh btn btn-default" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4>Wiki Generator</h4>
+            <div class="text-left project-bg wg" ng-controller="wiki-ctrl">
+              <div class="row text-center">
+                <div class="col-sm-8">
+                  <div class="search">
+                    <span class="fa fa-search" ng-click="search()"></span>
+                    <input ng-enter="search()" id="keywords" placeholder="Keywords">
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <a id="random-wiki" href="https://{{lang.code}}.wikipedia.org/wiki/Special:Random" target="_blank">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                  </a>
+                  <select id="langs" ng-model="lang" ng-options="lang.value for lang in langs"></select>
+                </div>
+              </div>
+              <h4 id="result-summary"></h4>
+              <div class="search-results" ng-repeat="wiki in wikiList">
+                <a href="{{wiki.link}}" target="_blank">
+                  <strong>{{wiki.title}}</strong>
+                  <p>{{wiki.content}}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4>Twitch Bridge</h4>
+            <div class="project-bg tb" ng-controller="stream-ctrl">
+              <div class="search">
+                <span class="fa fa-search" ng-click="findChannel()"></span>
+                <input ng-enter="findChannel()" id="channel" placeholder="Channel">
+                <i class="fa fa-home" ng-enter="fccFollows()"></i>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <strong>Channels</strong>
+                </div>
+                <div class="col-sm-6">
+                  <strong>Stream</strong>
+                </div>
+              </div>
+              <div class="row" ng-repeat="channel in channels">
+                <div class="col-sm-6">
+                  <div class="row channel">
+                    <div class="col-xs-4">
+                      <img ng-src="{{channel.logo}}" alt="X">
+                    </div>
+                    <div class="col-xs-8">
+                      {{channel.display_name}}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="stream">
+                    <a href="{{channel.url}}" target="_blank">
+                      {{channel.status}}
                     </a>
+                  </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="row nav-bar">
-                        <div class="col-sm-2">
-                            <a href="#portfolio-profile">
-                                <h4>Profile</h4>
-                            </a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="#api-projects">
-                                <h4>API Projects</h4>
-                            </a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="#other-tools">
-                                <h4>Other Tools</h4>
-                            </a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="#portfolio-games">
-                                <h4>Games</h4>
-                            </a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="#portfolio-contact">
-                                <h4>Contact</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </header>
-    <body>
-        <section class="container" id="portfolio-profile">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="card">
-                        <canvas
-                        class="header-bg"
-                        width="250"
-                        height="70"></canvas>
-                        <div class="avatar">
-                            <img
-                            src="./img/ikari_shinji.jpg"
-                            alt="Profile" />
-                        </div>
-                        <div class="content">
-                            <p>
-                                <b>Vincent Shen</b> <br>
-                               Web Developer
-                           </p>
-                        </div>
-                    </div>
-                </div>
-                <div
-                class="col-xs-3 social-links"
-                ng-controller="social-links-ctrl">
-                    <ul ng-repeat="link in socialLinks">
-                        <li>
-                            <a
-                            href="{{link.href}}" target="_blank">
-                                <i
-                                class="fa {{link.icon}} btn" aria-hidden="true">
-                                    {{link.username}}
-                                </i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div
-                class="col-sm-6"
-                ng-controller="summary-ctrl">
-                    <li ng-repeat="(category, content) in summary">
-                        <ul>
-                            <strong>{{category}}</strong>:
-                            {{content}}
-                        </ul>
-                    </li>
-                </div>
-            </div>
-        </section>
+      </div>
+    </div>
+  </section>
+  <section class="container text-center" id="other-tools">
+    <h3>Other Tools</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4>Calculator</h4>
+            <a href="https://hanabinoir.github.io/calculator/" target="_blank">
+              <img src="./img/calc-thumbnail.jpg" alt="Calculator">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4>Pomodoro Clock</h4>
+            <a href="https://hanabinoir.github.io/pomodoro-clock/" target="_blank">
+              <img src="./img/pom-clock-thumbnail.jpg" alt="Pomodoro Clock">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container text-center" id="portfolio-games">
+    <h3>Games</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4>Space Shooter</h4>
+            <a href="#hanabinoir.github.io/space-shooter-webgl" target="_blank">
+              <img src="" alt="Space Shooter">
+            </a>
+            <p>
+              <strong>Description</strong><br>
+              Creative with Unity3d in C#
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4>Tic-Tac</h4>
+            <a href="" target="_blank">
+              <img src="" alt="Tic-Tac">
+            </a>
+            <p>
+              <strong>Description</strong><br>
+              FreeCodeCamp Project
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
 
-        <section
-        class="container text-center"
-        id="api-projects">
-            <h3>API Projects</h3>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <a href="https://darksky.net/poweredby/" target="_blank">
-                                <img
-                                class="powered-by-darksky"
-                                src="https://darksky.net/dev/img/attribution/poweredby-oneline.png"
-                                alt="Powered by Dark Sky">
-                            </a>
-                            <div class="project-bg lw">
-                                <h4 ng-controller="weather-ctrl">
-                                    <p>
-                                        <i id="weather-icon"></i>
-                                        {{weather.summary}}
-                                    </p>
-                                    <p>
-                                        <span id="weather-temporature">
-                                            {{
-                                                (weather.unit == "celsius") ?
-                                                weather.celsius.toFixed(2) :
-                                                weather.fahrenheit.toFixed(2)
-                                            }}
-                                        </span>
-                                        <i
-                                        id="weather-unit-celsius"
-                                        class="wi wi-celsius btn unit unit-selected" ng-click="weather.unit = 'celsius'"></i>/
-                                        <i
-                                        id="weather-unit-fahrenheit"
-                                        class="wi wi-fahrenheit btn unit" ng-click="weather.unit = 'fahrenheit'"></i>
-                                    </p>
-                                </h4>
-                                <p ng-controller="region-ctrl">
-                                    <span id="location-city">
-                                        {{location.city}}
-                                    </span>,
-                                    <span id="location-region">
-                                        {{location.region}}
-                                    </span>,
-                                    <span id="location-country">
-                                        {{location.country}}
-                                    </span>
-                                </p>
-                            </div>
-                            <h4>Random Quote</h4>
-                            <div
-                            class="random-quote"
-                            ng-controller="quote-ctrl">
-                                <div class="project-bg rq">
-                                    <p class="quote-text">
-                                        {{quote.text}}
-                                    </p>
-                                    <p class="quote-author">
-                                        <i>
-                                            {{quote.author}}
-                                        </i>
-                                    </p>
-                                </div>
-                                <a
-                                id="tweet" href="https://twitter.com/intent/tweet?text="
-                                target="_blank"><i
-                                class="fa fa-twitter btn btn-primary"
-                                aria-hidden="true"></i></a>
-                                <i
-                                ng-click="generate()"
-                                class="fa fa-refresh btn btn-default"
-                                aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h4>Wiki Generator</h4>
-                            <div
-                            class="text-left project-bg wg"
-                            ng-controller="wiki-ctrl">
-                                <div class="row text-center">
-                                    <div class="col-sm-8">
-                                        <div class="search">
-                                            <span
-                                            class="fa fa-search" ng-click="search()"></span>
-                                            <input
-                                            ng-enter="search()"
-                                            id="keywords" placeholder="Keywords">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <a
-                                        id="random-wiki"
-                                        href="https://{{lang.code}}.wikipedia.org/wiki/Special:Random"
-                                        target="_blank">
-                                            <i
-                                            class="fa fa-question-circle" aria-hidden="true"></i>
-                                        </a>
-                                        <select
-                                        id="langs"
-                                        ng-model="lang"
-                                        ng-options="lang.value for lang in langs"></select>
-                                    </div>
-                                </div>
-                                <h4 id="result-summary"></h4>
-                                <div
-                                class="search-results" ng-repeat="wiki in wikiList">
-                                    <a
-                                    href="{{wiki.link}}"
-                                    target="_blank">
-                                        <strong>
-                                            {{wiki.title}}
-                                        </strong>
-                                        <p>
-                                            {{wiki.content}}
-                                        </p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h4>Twitch Bridge</h4>
-                            <div
-                            class="project-bg tb"
-                            ng-controller="stream-ctrl">
-                                <div class="search">
-                                    <span
-                                    class="fa fa-search" ng-click="findChannel()"></span>
-                                    <input
-                                    ng-enter="findChannel()"
-                                    id="channel"
-                                    placeholder="Channel">
-                                    <i
-                                    class="fa fa-home"
-                                    ng-enter="fccFollows()"></i>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <strong>Channels</strong>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <strong>Stream</strong>
-                                    </div>
-                                </div>
-                                <div
-                                class="row"
-                                ng-repeat="channel in channels">
-                                    <div class="col-sm-6">
-                                        <div
-                                        class="row channel">
-                                            <div class="col-xs-4">
-                                                <img
-                                                ng-src="{{channel.logo}}"
-                                                alt="X">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                {{channel.display_name}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="stream">
-                                            <a
-                                            href="{{channel.url}}" target="_blank">
-                                                {{channel.status}}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="container text-center" id="other-tools">
-            <h3>Other Tools</h3>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h4>Calculator</h4>
-                            <a
-                            href="https://hanabinoir.github.io/calculator/"
-                            target="_blank">
-                                <img
-                                src="./img/calc-thumbnail.jpg"
-                                alt="My Fcc Calculator">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h4>Pomodoro Clock</h4>
-                            <div class="project-bg pc">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="container text-center" id="portfolio-games">
-            <h3>Games</h3>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h4>Space Shooter</h4>
-                            <a
-                            href="#hanabinoir.github.io/space-shooter-webgl"
-                            target="_blank">
-                                <img src="" alt="Space Shooter">
-                            </a>
-                            <p>
-                                <strong>Description</strong><br>
-                                Creative with Unity3d in C#
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h4>Tic-Tac</h4>
-                            <a
-                            href=""
-                            target="_blank">
-                                <img src="" alt="Tic-Tac">
-                            </a>
-                            <p>
-                                <strong>Description</strong><br>
-                                FreeCodeCamp Project
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
-    <footer class="text-center">
-        <p>Powered by Vincent Shen</p>
-        <script
-          src="https://code.jquery.com/jquery-3.2.1.js"
-          integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-          crossorigin="anonymous"></script>
-        <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <script src="https://use.fontawesome.com/60b538da21.js"></script>
-        <script type="text/javascript" src="./js/weather.js"></script>
-        <script type="text/javascript" src="./js/social-links.js"></script>
-        <script type="text/javascript" src="./js/profile-summary.js"></script>
-        <script type="text/javascript" src="./js/quote.js"></script>
-        <script type="text/javascript" src="./js/wiki.js"></script>
-        <script type="text/javascript" src="./js/stream.js"></script>
-        <script type="text/javascript" src="./js/main.js"></script>
-    </footer>
+<footer class="text-center">
+  <p>Powered by Vincent Shen</p>
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://use.fontawesome.com/60b538da21.js"></script>
+  <script type="text/javascript" src="./js/weather.js"></script>
+  <script type="text/javascript" src="./js/social-links.js"></script>
+  <script type="text/javascript" src="./js/profile-summary.js"></script>
+  <script type="text/javascript" src="./js/quote.js"></script>
+  <script type="text/javascript" src="./js/wiki.js"></script>
+  <script type="text/javascript" src="./js/stream.js"></script>
+  <script type="text/javascript" src="./js/main.js"></script>
+</footer>
+
 </html>
