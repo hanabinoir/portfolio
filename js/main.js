@@ -14,7 +14,10 @@ portfolioApp.factory(
                 $window.navigator.geolocation.getCurrentPosition(
                     function (position) {
                         $rootScope.$apply(function() {
-                            var latlng = {};
+                            var latlng = {
+                                'lat': -122.973, 
+                                'lng': 49.24455
+                            };
                             latlng.lat = position.coords.latitude;
                             latlng.lng = position.coords.longitude;
                             geocode.resolve(latlng);
